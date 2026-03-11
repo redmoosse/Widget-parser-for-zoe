@@ -2,7 +2,9 @@ import os
 import threading
 from datetime import datetime
 from PyQt6.QtWidgets import QColorDialog, QFileDialog
-from PyQt6.QtCore import QDate, QTimer, QDateTime
+from PyQt6.QtCore import QDate, QTimer
+from PyQt6.QtGui import QColor
+
 from config import LOG_FILE
 from core.audio import play_alert_sound
 from core.tuya_api import TuyaAPI
@@ -83,7 +85,7 @@ class ActionsMixin:
         self.fetch_zoe_schedule(silent=True)
 
     def auto_fetch_zoe(self):
-        if self.auto_update_zoe and self.zoe_queue.strip():
+        if getattr(self, 'auto_update_zoe', False) and getattr(self, 'zoe_queue', '').strip():
             self.fetch_zoe_schedule(silent=True)
 
     def fetch_zoe_schedule(self, silent=False):
@@ -155,7 +157,7 @@ class ActionsMixin:
         self.btn_save.setEnabled(True)
 
     def refresh_tuya_stats(self):
-        if not self.tuya_enabled or not self.tuya_id or not self.tuya_secret or not self.tuya_device:
+        if not getattr(self, 'tuya_enabled', False) or not self.tuya_id or not self.tuya_secret or not self.tuya_device:
             self.tuya_data_label.hide()
             self.tuya_time_label.hide()
             return
@@ -212,7 +214,7 @@ class ActionsMixin:
             pass 
 
     def choose_text_color(self):
-        color = QColorDialog.getColor(self.text_color, self, "Choose Text Color")
+        color = QColorDialog.getColor(QColor(self.text_color), self, "Choose Text Color")
         if color.isValid():
             self.text_color = color.name()
             self.update_styles()
@@ -241,7 +243,7 @@ class ActionsMixin:
         self.spin_font.setValue(self.font_size)
         self.spin_off.setValue(self.off_hours)
         self.spin_on.setValue(self.on_hours)
-        self.dt_edit.setDateTime(QDateTime(self.start_point))
+        self.dt_edit.setDateTime(self.start_point)
         
         if hasattr(self, 'custom_sound_path') and self.custom_sound_path:
             self.le_sound_path.setText(os.path.basename(self.custom_sound_path))
