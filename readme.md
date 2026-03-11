@@ -11,6 +11,7 @@ A modular desktop application built with **Python** and **PyQt6** designed to mo
   <img width="362" height="682" alt="image" src="https://github.com/user-attachments/assets/0b94d550-3e56-4579-b0b3-91e59b071f73" />
   <img width="352" height="675" alt="image" src="https://github.com/user-attachments/assets/ff94e5e4-5062-4a94-810b-9fc529464619" />
   <img width="371" height="689" alt="image" src="https://github.com/user-attachments/assets/24eecc4e-7902-4211-a5e9-0ae138b32368" />
+  <img width="368" height="691" alt="image" src="https://github.com/user-attachments/assets/7aefd085-c559-4eea-9d99-15f12ff8d64a" />
   <img width="362" height="682" alt="image" src="https://github.com/user-attachments/assets/d21d8fba-f81a-4636-95f6-8e1f9639485a" />
   <img width="275" height="157" alt="image" src="https://github.com/user-attachments/assets/34c0747b-dfdb-48b5-b0fe-9bcdc69e9f94" />
 </div>
